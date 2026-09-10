@@ -2,134 +2,2230 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>HerWell AI</title>
+<meta charset="UTF-8">
 
-    <link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Prakriti AI</title>
+
+<style>
+
+/* =========================
+   GENERAL
+========================= */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#fff0f6,#f3e8ff);
+    min-height:100vh;
+    color:#333;
+}
+
+
+/* =========================
+   LOGIN PAGE
+========================= */
+
+.login-page{
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:20px;
+}
+
+.login-box{
+
+    width:400px;
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 35px rgba(0,0,0,0.15);
+}
+
+.logo{
+
+    text-align:center;
+
+    font-size:30px;
+
+    font-weight:bold;
+
+    color:#d63384;
+
+    margin-bottom:8px;
+}
+
+.subtitle{
+
+    text-align:center;
+
+    color:#777;
+
+    margin-bottom:25px;
+}
+
+.input-group{
+
+    margin-bottom:17px;
+}
+
+label{
+
+    display:block;
+
+    font-weight:bold;
+
+    margin-bottom:7px;
+}
+
+input,
+select{
+
+    width:100%;
+
+    padding:12px;
+
+    border:1px solid #ddd;
+
+    border-radius:10px;
+
+    font-size:15px;
+}
+
+input:focus,
+select:focus{
+
+    outline:none;
+
+    border-color:#d63384;
+}
+
+button{
+
+    border:none;
+
+    padding:12px 18px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    font-weight:bold;
+}
+
+.login-btn{
+
+    width:100%;
+
+    background:#d63384;
+
+    color:white;
+
+    margin-top:5px;
+}
+
+.login-btn:hover{
+
+    background:#b52b70;
+}
+
+.switch{
+
+    text-align:center;
+
+    margin-top:18px;
+
+    color:#777;
+}
+
+.switch span{
+
+    color:#d63384;
+
+    cursor:pointer;
+
+    font-weight:bold;
+}
+
+
+/* =========================
+   DASHBOARD
+========================= */
+
+.dashboard{
+
+    display:none;
+}
+
+.navbar{
+
+    background:white;
+
+    padding:15px 30px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    box-shadow:0 3px 15px rgba(0,0,0,0.08);
+
+    position:sticky;
+
+    top:0;
+
+    z-index:10;
+}
+
+.nav-logo{
+
+    color:#d63384;
+
+    font-size:24px;
+
+    font-weight:bold;
+}
+
+.logout{
+
+    background:#333;
+
+    color:white;
+}
+
+.container{
+
+    max-width:1100px;
+
+    margin:30px auto;
+
+    padding:20px;
+}
+
+
+/* =========================
+   WELCOME
+========================= */
+
+.welcome{
+
+    background:linear-gradient(135deg,#d63384,#8e44ad);
+
+    color:white;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    margin-bottom:25px;
+}
+
+.welcome h1{
+
+    margin-bottom:8px;
+}
+
+
+/* =========================
+   CARDS
+========================= */
+
+.card{
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    margin-bottom:25px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+}
+
+.card h2{
+
+    color:#d63384;
+
+    margin-bottom:20px;
+}
+
+
+/* =========================
+   GRID
+========================= */
+
+.grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:18px;
+}
+
+.symptoms{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:10px;
+}
+
+.checkbox{
+
+    background:#fafafa;
+
+    padding:12px;
+
+    border-radius:10px;
+}
+
+.checkbox input{
+
+    width:auto;
+
+    margin-right:8px;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.analyse-btn{
+
+    background:#d63384;
+
+    color:white;
+
+    width:100%;
+
+    margin-top:20px;
+}
+
+.analyse-btn:hover{
+
+    background:#b52b70;
+}
+
+.report-btn{
+
+    background:#8e44ad;
+
+    color:white;
+
+    margin-top:15px;
+
+    width:100%;
+}
+
+.report-btn:hover{
+
+    background:#71368a;
+}
+
+
+/* =========================
+   RESULTS
+========================= */
+
+.result{
+
+    display:none;
+}
+
+.result-card{
+
+    padding:20px;
+
+    border-radius:15px;
+
+    margin-bottom:15px;
+
+    background:#fafafa;
+
+    border-left:5px solid #d63384;
+}
+
+.result-card h3{
+
+    margin-bottom:10px;
+
+    color:#8e44ad;
+}
+
+.risk{
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    margin-bottom:8px;
+}
+
+.high{
+
+    color:#c0392b;
+}
+
+.moderate{
+
+    color:#e67e22;
+}
+
+.low{
+
+    color:#27ae60;
+}
+
+.info{
+
+    background:#f1e8ff;
+
+    padding:15px;
+
+    border-radius:10px;
+
+    margin-top:15px;
+
+    line-height:1.6;
+}
+
+
+/* =========================
+   HISTORY
+========================= */
+
+.history-card{
+
+    background:#fff5fa;
+
+    padding:15px;
+
+    border-radius:10px;
+
+    margin-top:10px;
+
+    border-left:4px solid #d63384;
+}
+
+.no-data{
+
+    color:#777;
+
+    font-style:italic;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:700px){
+
+    .grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .symptoms{
+
+        grid-template-columns:1fr;
+    }
+
+    .navbar{
+
+        padding:15px;
+    }
+
+    .container{
+
+        padding:12px;
+    }
+
+    .login-box{
+
+        width:100%;
+    }
+
+}
+
+</style>
+
 </head>
+
 
 <body>
 
-    <header>
+
+<!-- ==================================================
+     LOGIN PAGE
+================================================== -->
+
+<div class="login-page" id="loginPage">
+
+    <div class="login-box">
 
         <div class="logo">
-            🌸 HerWell <span>AI</span>
+            🌸 Prakriti AI
         </div>
 
-        <nav>
-            <a href="#">Home</a>
-            <a href="#">Assessment</a>
-            <a href="#">Cycle</a>
-            <a href="#">Symptoms</a>
-            <a href="#">Dashboard</a>
-        </nav>
-
-        <button>Start Assessment</button>
-
-    </header>
+        <div class="subtitle">
+            Smart Women's Health Assistant
+        </div>
 
 
-    <main>
+        <!-- LOGIN FORM -->
 
-        <section class="hero">
+        <div id="loginForm">
 
-            <div class="hero-text">
+            <div class="input-group">
 
-                <p>🌿 WOMEN'S WELLNESS PLATFORM</p>
+                <label>Email</label>
 
-                <h1>
-                    Understand your body.
-                    <span>Take care of your wellness.</span>
-                </h1>
-
-                <p class="description">
-                    HerWell AI helps you monitor menstrual health,
-                    symptoms, sleep, stress and lifestyle patterns
-                    in one simple platform.
-                </p>
-
-                <button class="start-btn">
-                    Start Wellness Assessment →
-                </button>
+                <input
+                    type="email"
+                    id="loginEmail"
+                    placeholder="Enter your email">
 
             </div>
 
 
-            <div class="hero-card">
+            <div class="input-group">
 
-                <div class="flower">
-                    🌸
+                <label>Password</label>
+
+                <input
+                    type="password"
+                    id="loginPassword"
+                    placeholder="Enter your password">
+
+            </div>
+
+
+            <button
+                class="login-btn"
+                onclick="login()">
+
+                Login
+
+            </button>
+
+
+            <div class="switch">
+
+                Don't have an account?
+
+                <span onclick="showSignup()">
+                    Create Account
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- SIGNUP FORM -->
+
+        <div id="signupForm" style="display:none">
+
+            <div class="input-group">
+
+                <label>Full Name</label>
+
+                <input
+                    type="text"
+                    id="signupName"
+                    placeholder="Enter your name">
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>Email</label>
+
+                <input
+                    type="email"
+                    id="signupEmail"
+                    placeholder="Enter your email">
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>Password</label>
+
+                <input
+                    type="password"
+                    id="signupPassword"
+                    placeholder="Create password">
+
+            </div>
+
+
+            <button
+                class="login-btn"
+                onclick="signup()">
+
+                Create Account
+
+            </button>
+
+
+            <div class="switch">
+
+                Already have an account?
+
+                <span onclick="showLogin()">
+                    Login
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ==================================================
+     DASHBOARD
+================================================== -->
+
+<div class="dashboard" id="dashboard">
+
+
+    <!-- NAVBAR -->
+
+    <div class="navbar">
+
+        <div class="nav-logo">
+            🌸 Prakriti AI
+        </div>
+
+        <button
+            class="logout"
+            onclick="logout()">
+
+            Logout
+
+        </button>
+
+    </div>
+
+
+
+    <div class="container">
+
+
+        <!-- WELCOME -->
+
+        <div class="welcome">
+
+            <h1>
+                Welcome,
+                <span id="userName"></span> 🌸
+            </h1>
+
+            <p>
+                Your personal women's health screening assistant
+            </p>
+
+        </div>
+
+
+
+        <!-- BASIC INFORMATION -->
+
+        <div class="card">
+
+            <h2>
+                📝 Basic Health Information
+            </h2>
+
+
+            <div class="grid">
+
+
+                <div>
+
+                    <label>
+                        Age
+                    </label>
+
+                    <input
+                        type="number"
+                        id="age"
+                        placeholder="Enter your age">
+
                 </div>
+
+
+
+                <div>
+
+                    <label>
+                        Menstrual Cycle Length
+                    </label>
+
+                    <input
+                        type="number"
+                        id="cycle"
+                        placeholder="Example: 30">
+
+                </div>
+
+
+
+                <div>
+
+                    <label>
+                        Primary Concern
+                    </label>
+
+                    <select id="concern">
+
+                        <option value="">
+                            Select concern
+                        </option>
+
+                        <option value="pcos">
+                            PCOS / Irregular Cycles
+                        </option>
+
+                        <option value="cramps">
+                            Severe Cramps
+                        </option>
+
+                        <option value="heavy">
+                            Heavy Bleeding / Fatigue
+                        </option>
+
+                        <option value="hormonal">
+                            Hormonal Acne / Mood Swings
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- SYMPTOMS -->
+
+        <div class="card">
+
+            <h2>
+                🩺 Symptoms
+            </h2>
+
+
+            <div class="symptoms">
+
+
+                <label class="checkbox">
+
+                    <input
+                        type="checkbox"
+                        value="weight"
+                        class="symptom">
+
+                    Weight Gain
+
+                </label>
+
+
+
+                <label class="checkbox">
+
+                    <input
+                        type="checkbox"
+                        value="hair"
+                        class="symptom">
+
+                    Hair Loss / Hair Thinning
+
+                </label>
+
+
+
+                <label class="checkbox">
+
+                    <input
+                        type="checkbox"
+                        value="acne"
+                        class="symptom">
+
+                    Acne
+
+                </label>
+
+
+
+                <label class="checkbox">
+
+                    <input
+                        type="checkbox"
+                        value="bloating"
+                        class="symptom">
+
+                    Bloating
+
+                </label>
+
+
+
+                <label class="checkbox">
+
+                    <input
+                        type="checkbox"
+                        value="sleep"
+                        class="symptom">
+
+                    Sleep Issues
+
+                </label>
+
+
+
+                <label class="checkbox">
+
+                    <input
+                        type="checkbox"
+                        value="mood"
+                        class="symptom">
+
+                    Mood Swings
+
+                </label>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- MONTHLY TRACKING -->
+
+        <div class="card">
+
+            <h2>
+                📅 Monthly Health Tracking
+            </h2>
+
+
+            <div class="grid">
+
+
+                <div>
+
+                    <label>
+                        Pain Level (0-10)
+                    </label>
+
+                    <input
+                        type="number"
+                        id="pain"
+                        min="0"
+                        max="10"
+                        placeholder="Example: 5">
+
+                </div>
+
+
+
+                <div>
+
+                    <label>
+                        Menstrual Flow
+                    </label>
+
+                    <select id="flow">
+
+                        <option value="">
+                            Select
+                        </option>
+
+                        <option value="Light">
+                            Light
+                        </option>
+
+                        <option value="Normal">
+                            Normal
+                        </option>
+
+                        <option value="Heavy">
+                            Heavy
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <div>
+
+                    <label>
+                        Sleep Quality
+                    </label>
+
+                    <select id="sleep">
+
+                        <option value="">
+                            Select
+                        </option>
+
+                        <option value="Good">
+                            Good
+                        </option>
+
+                        <option value="Average">
+                            Average
+                        </option>
+
+                        <option value="Poor">
+                            Poor
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="analyse-btn"
+                onclick="generateAnalysis()">
+
+                Generate AI Health Assessment
+
+            </button>
+
+        </div>
+
+
+
+        <!-- RESULTS -->
+
+        <div
+            class="result"
+            id="result">
+
+
+            <div class="card">
 
                 <h2>
-                    Your Wellness Journey
+                    📊 Prakriti AI Health Assessment
                 </h2>
 
-                <div class="stat">
-                    <span>Cycle</span>
-                    <strong>Regular</strong>
+
+                <!-- PCOS RISK -->
+
+                <div class="result-card">
+
+                    <h3>
+                        🩺 PCOS Risk Screening
+                    </h3>
+
+                    <div
+                        id="risk"
+                        class="risk">
+                    </div>
+
+                    <p id="riskText"></p>
+
                 </div>
 
-                <div class="stat">
-                    <span>Sleep</span>
-                    <strong>7.2 hrs</strong>
+
+
+                <!-- MEDICAL ASSESSMENT -->
+
+                <div class="result-card">
+
+                    <h3>
+                        🔬 Medical Health Assessment
+                    </h3>
+
+                    <p id="medical"></p>
+
                 </div>
 
-                <div class="stat">
-                    <span>Activity</span>
-                    <strong>Good</strong>
+
+
+                <!-- AYURVEDA -->
+
+                <div class="result-card">
+
+                    <h3>
+                        🌿 Ayurvedic Wellness Perspective
+                    </h3>
+
+                    <p id="ayurveda"></p>
+
                 </div>
 
+
+
+                <!-- WHY -->
+
+                <div class="result-card">
+
+                    <h3>
+                        💡 Why These Recommendations?
+                    </h3>
+
+                    <p id="why"></p>
+
+                </div>
+
+
+
+                <!-- MONTHLY DATA -->
+
+                <div class="result-card">
+
+                    <h3>
+                        📅 Current Monthly Health Data
+                    </h3>
+
+                    <p id="monthly"></p>
+
+                </div>
+
+
+
+                <!-- HISTORY -->
+
+                <div class="result-card">
+
+                    <h3>
+                        📈 Previous Monthly Records
+                    </h3>
+
+                    <div id="history"></div>
+
+                </div>
+
+
+
+                <!-- DISCLAIMER -->
+
+                <div class="info">
+
+                    <strong>
+                        ⚠️ Important:
+                    </strong>
+
+                    <br>
+
+                    This application provides educational
+                    and symptom-based screening only.
+
+                    It does not diagnose PCOS or any
+                    other medical condition.
+
+                    Please consult a qualified healthcare
+                    professional for proper diagnosis
+                    and treatment.
+
+                </div>
+
+
+
+                <!-- REPORT -->
+
+                <button
+                    class="report-btn"
+                    onclick="generateReport()">
+
+                    📄 Generate Doctor Report
+
+                </button>
+
+
             </div>
 
-        </section>
+        </div>
+
+    </div>
+
+</div>
 
 
-        <section class="features">
 
-            <div class="card">
-                <div>🌸</div>
-                <h3>Cycle Tracking</h3>
-                <p>
-                    Track your menstrual cycle and patterns.
-                </p>
-            </div>
+<script>
 
 
-            <div class="card">
-                <div>💗</div>
-                <h3>Symptom Monitoring</h3>
-                <p>
-                    Record symptoms and monitor your wellness.
-                </p>
-            </div>
+/* ==================================================
+   SIGNUP
+================================================== */
+
+function signup(){
+
+    let name =
+        document.getElementById("signupName").value.trim();
+
+    let email =
+        document.getElementById("signupEmail").value.trim();
+
+    let password =
+        document.getElementById("signupPassword").value;
 
 
-            <div class="card">
-                <div>🥗</div>
-                <h3>Nutrition</h3>
-                <p>
-                    Explore healthy nutrition and lifestyle guidance.
-                </p>
-            </div>
+    if(
+        name === "" ||
+        email === "" ||
+        password === ""
+    ){
+
+        alert("Please fill all fields.");
+
+        return;
+
+    }
 
 
-            <div class="card">
-                <div>😴</div>
-                <h3>Sleep & Stress</h3>
-                <p>
-                    Monitor sleep, activity and stress levels.
-                </p>
-            </div>
+    if(password.length < 4){
 
-        </section>
+        alert("Password must contain at least 4 characters.");
 
-    </main>
+        return;
+
+    }
 
 
-    <script src="script.js"></script>
+    let user = {
+
+        name:name,
+
+        email:email,
+
+        password:password
+
+    };
+
+
+    localStorage.setItem(
+        "prakritiUser",
+        JSON.stringify(user)
+    );
+
+
+    alert(
+        "Account created successfully!"
+    );
+
+
+    document.getElementById("loginEmail").value =
+        email;
+
+    document.getElementById("loginPassword").value =
+        "";
+
+
+    showLogin();
+
+}
+
+
+
+/* ==================================================
+   LOGIN
+================================================== */
+
+function login(){
+
+    let email =
+        document.getElementById("loginEmail").value.trim();
+
+    let password =
+        document.getElementById("loginPassword").value;
+
+
+    if(email === "" || password === ""){
+
+        alert("Please enter email and password.");
+
+        return;
+
+    }
+
+
+    let savedUser =
+        JSON.parse(
+            localStorage.getItem("prakritiUser")
+        );
+
+
+    if(!savedUser){
+
+        alert(
+            "No account found. Please create an account first."
+        );
+
+        return;
+
+    }
+
+
+    if(
+        email === savedUser.email &&
+        password === savedUser.password
+    ){
+
+        localStorage.setItem(
+            "loggedIn",
+            "true"
+        );
+
+
+        showDashboard();
+
+    }
+
+    else{
+
+        alert(
+            "Incorrect email or password."
+        );
+
+    }
+
+}
+
+
+
+/* ==================================================
+   SHOW SIGNUP
+================================================== */
+
+function showSignup(){
+
+    document.getElementById("loginForm")
+        .style.display = "none";
+
+    document.getElementById("signupForm")
+        .style.display = "block";
+
+}
+
+
+
+/* ==================================================
+   SHOW LOGIN
+================================================== */
+
+function showLogin(){
+
+    document.getElementById("loginForm")
+        .style.display = "block";
+
+    document.getElementById("signupForm")
+        .style.display = "none";
+
+}
+
+
+
+/* ==================================================
+   SHOW DASHBOARD
+================================================== */
+
+function showDashboard(){
+
+    let user =
+        JSON.parse(
+            localStorage.getItem("prakritiUser")
+        );
+
+
+    if(!user){
+
+        return;
+
+    }
+
+
+    document.getElementById("loginPage")
+        .style.display = "none";
+
+
+    document.getElementById("dashboard")
+        .style.display = "block";
+
+
+    document.getElementById("userName")
+        .innerText = user.name;
+
+}
+
+
+
+/* ==================================================
+   LOGOUT
+================================================== */
+
+function logout(){
+
+    localStorage.removeItem("loggedIn");
+
+    document.getElementById("dashboard")
+        .style.display = "none";
+
+    document.getElementById("loginPage")
+        .style.display = "flex";
+
+}
+
+
+
+/* ==================================================
+   AUTO LOGIN
+================================================== */
+
+window.onload = function(){
+
+    if(
+        localStorage.getItem("loggedIn") === "true"
+    ){
+
+        showDashboard();
+
+    }
+
+};
+
+
+
+/* ==================================================
+   GENERATE HEALTH ANALYSIS
+================================================== */
+
+function generateAnalysis(){
+
+
+    /* BASIC DATA */
+
+    let age =
+        parseInt(
+            document.getElementById("age").value
+        );
+
+
+    let cycle =
+        parseInt(
+            document.getElementById("cycle").value
+        );
+
+
+    let concern =
+        document.getElementById("concern").value;
+
+
+    let pain =
+        parseInt(
+            document.getElementById("pain").value
+        ) || 0;
+
+
+    let flow =
+        document.getElementById("flow").value;
+
+
+    let sleep =
+        document.getElementById("sleep").value;
+
+
+
+    /* VALIDATION */
+
+    if(
+        !age ||
+        !cycle ||
+        !concern
+    ){
+
+        alert(
+            "Please fill Age, Cycle Length and Primary Concern."
+        );
+
+        return;
+
+    }
+
+
+    if(cycle < 10 || cycle > 90){
+
+        alert(
+            "Please enter a valid cycle length."
+        );
+
+        return;
+
+    }
+
+
+    if(pain < 0 || pain > 10){
+
+        alert(
+            "Pain level must be between 0 and 10."
+        );
+
+        return;
+
+    }
+
+
+
+    /* ==================================================
+       GET SYMPTOMS
+    ================================================== */
+
+    let symptoms = [];
+
+
+    document
+        .querySelectorAll(".symptom:checked")
+        .forEach(function(item){
+
+            symptoms.push(item.value);
+
+        });
+
+
+
+    /* ==================================================
+       PROTOTYPE PCOS SCORE
+    ================================================== */
+
+    let score = 0;
+
+
+    if(
+        cycle < 21 ||
+        cycle > 35
+    ){
+
+        score += 2;
+
+    }
+
+
+    if(
+        concern === "pcos"
+    ){
+
+        score += 2;
+
+    }
+
+
+    if(
+        symptoms.includes("weight")
+    ){
+
+        score += 1;
+
+    }
+
+
+    if(
+        symptoms.includes("acne")
+    ){
+
+        score += 1;
+
+    }
+
+
+    if(
+        symptoms.includes("hair")
+    ){
+
+        score += 1;
+
+    }
+
+
+
+    /* ==================================================
+       RISK LEVEL
+    ================================================== */
+
+    let riskText = "";
+
+
+    if(score >= 5){
+
+        riskText =
+            "Higher symptom-based risk";
+
+
+        document.getElementById("risk")
+            .innerHTML =
+            "<span class='high'>" +
+            riskText +
+            "</span>";
+
+    }
+
+
+    else if(score >= 3){
+
+        riskText =
+            "Moderate symptom-based risk";
+
+
+        document.getElementById("risk")
+            .innerHTML =
+            "<span class='moderate'>" +
+            riskText +
+            "</span>";
+
+    }
+
+
+    else{
+
+        riskText =
+            "Lower symptom-based risk";
+
+
+        document.getElementById("risk")
+            .innerHTML =
+            "<span class='low'>" +
+            riskText +
+            "</span>";
+
+    }
+
+
+
+    /* ==================================================
+       RISK EXPLANATION
+    ================================================== */
+
+    document.getElementById("riskText")
+        .innerText =
+
+        "Prototype screening score: " +
+        score +
+        "/7. This is a simple project-level symptom screening score and is NOT a clinically validated PCOS prediction model.";
+
+
+
+    /* ==================================================
+       MEDICAL ASSESSMENT
+    ================================================== */
+
+    let medical = "";
+
+
+    if(
+        cycle < 21 ||
+        cycle > 35
+    ){
+
+        medical +=
+
+        "Your menstrual cycle length is outside the commonly used adult reference range. ";
+
+    }
+
+
+    if(
+        symptoms.includes("weight") ||
+        symptoms.includes("acne") ||
+        symptoms.includes("hair")
+    ){
+
+        medical +=
+
+        "Weight changes, acne and hair changes can occur with hormonal or metabolic conditions, including PCOS, but these symptoms are not specific to PCOS. ";
+
+    }
+
+
+    if(pain >= 7){
+
+        medical +=
+
+        "Your reported pain level is high. Consider discussing significant menstrual pain with a healthcare professional. ";
+
+    }
+
+
+    if(flow === "Heavy"){
+
+        medical +=
+
+        "You reported heavy menstrual flow. If this is persistent or associated with fatigue or dizziness, discuss it with a healthcare professional. ";
+
+    }
+
+
+    if(medical === ""){
+
+        medical =
+
+        "No specific concern was identified by this simple prototype screening. Continue tracking your menstrual and general health.";
+
+    }
+
+
+    document.getElementById("medical")
+        .innerText = medical;
+
+
+
+    /* ==================================================
+       AYURVEDIC PERSPECTIVE
+    ================================================== */
+
+    let ayurveda = "";
+
+
+    if(
+        symptoms.includes("bloating") ||
+        symptoms.includes("sleep") ||
+        pain >= 7
+    ){
+
+        ayurveda +=
+
+        "From a traditional Ayurvedic wellness perspective, these symptoms may be described using Vata-like qualities such as irregularity, discomfort or disturbed sleep. ";
+
+    }
+
+
+    if(
+        symptoms.includes("weight") ||
+        symptoms.includes("acne")
+    ){
+
+        ayurveda +=
+
+        "Weight gain or feelings of heaviness may be described as Kapha-like qualities in Ayurvedic theory. ";
+
+    }
+
+
+    if(ayurveda === ""){
+
+        ayurveda =
+
+        "No specific Ayurvedic pattern can be suggested from the limited information provided.";
+
+    }
+
+
+    ayurveda +=
+
+        " This is a traditional wellness perspective and is not a medical diagnosis or scientifically validated method for diagnosing PCOS.";
+
+
+    document.getElementById("ayurveda")
+        .innerText = ayurveda;
+
+
+
+    /* ==================================================
+       WHY RECOMMENDATIONS
+    ================================================== */
+
+    let why = "";
+
+
+    if(
+        cycle < 21 ||
+        cycle > 35
+    ){
+
+        why +=
+
+        "Cycle tracking is useful because changes in cycle length can provide information to discuss with a healthcare professional. ";
+
+    }
+
+
+    if(
+        symptoms.includes("weight")
+    ){
+
+        why +=
+
+        "Regular physical activity and balanced nutrition can support general health and metabolic well-being. ";
+
+    }
+
+
+    if(
+        symptoms.includes("acne") ||
+        symptoms.includes("hair")
+    ){
+
+        why +=
+
+        "Acne and hair changes can be useful symptoms to mention when discussing possible hormonal concerns with a healthcare professional. ";
+
+    }
+
+
+    if(pain >= 7){
+
+        why +=
+
+        "Because your pain score is high, keeping a record can help communicate the severity and pattern of pain to a doctor. ";
+
+    }
+
+
+    if(why === ""){
+
+        why =
+
+        "The information shown here is based on the data entered into this prototype. A complete medical assessment requires a qualified healthcare professional.";
+
+    }
+
+
+    document.getElementById("why")
+        .innerText = why;
+
+
+
+    /* ==================================================
+       MONTHLY DATA
+       FIXED VERSION
+    ================================================== */
+
+    let monthlyData = {
+
+        date:
+            new Date().toLocaleDateString(),
+
+        age:
+            age,
+
+        cycle:
+            cycle,
+
+        pain:
+            pain,
+
+        flow:
+            flow || "Not entered",
+
+        sleep:
+            sleep || "Not entered"
+
+    };
+
+
+    /*
+       GET OLD DATA
+    */
+
+    let savedData =
+        localStorage.getItem(
+            "prakritiMonthlyData"
+        );
+
+
+    let previousData = [];
+
+
+    if(savedData){
+
+        try{
+
+            previousData =
+                JSON.parse(savedData);
+
+        }
+
+        catch(error){
+
+            previousData = [];
+
+        }
+
+    }
+
+
+    /*
+       IMPORTANT FIX
+
+       If old data is an object,
+       convert it to an empty array.
+    */
+
+    if(!Array.isArray(previousData)){
+
+        previousData = [];
+
+    }
+
+
+    /*
+       NOW PUSH WILL ALWAYS WORK
+    */
+
+    previousData.push(monthlyData);
+
+
+    /*
+       SAVE ARRAY
+    */
+
+    localStorage.setItem(
+
+        "prakritiMonthlyData",
+
+        JSON.stringify(previousData)
+
+    );
+
+
+
+    /* ==================================================
+       CURRENT MONTH DISPLAY
+    ================================================== */
+
+    document.getElementById("monthly")
+        .innerText =
+
+        "Pain: " +
+        pain +
+        "/10 | Flow: " +
+        (flow || "Not entered") +
+        " | Sleep: " +
+        (sleep || "Not entered");
+
+
+
+    /* ==================================================
+       SHOW HISTORY
+    ================================================== */
+
+    showHistory();
+
+
+
+    /* ==================================================
+       SHOW RESULT
+    ================================================== */
+
+    document.getElementById("result")
+        .style.display = "block";
+
+
+    window.scrollTo({
+
+        top:
+            document.getElementById("result")
+                .offsetTop,
+
+        behavior:"smooth"
+
+    });
+
+}
+
+
+
+/* ==================================================
+   SHOW MONTHLY HISTORY
+================================================== */
+
+function showHistory(){
+
+
+    let history =
+        document.getElementById("history");
+
+
+    let savedData =
+        localStorage.getItem(
+            "prakritiMonthlyData"
+        );
+
+
+    if(!savedData){
+
+        history.innerHTML =
+            "<p class='no-data'>No previous records available.</p>";
+
+        return;
+
+    }
+
+
+    let data;
+
+
+    try{
+
+        data =
+            JSON.parse(savedData);
+
+    }
+
+    catch(error){
+
+        data = [];
+
+    }
+
+
+    /*
+       IMPORTANT FIX
+    */
+
+    if(!Array.isArray(data)){
+
+        data = [];
+
+    }
+
+
+    if(data.length === 0){
+
+        history.innerHTML =
+            "<p class='no-data'>No previous records available.</p>";
+
+        return;
+
+    }
+
+
+    /*
+       SHOW LATEST RECORDS FIRST
+    */
+
+    let html = "";
+
+
+    let reversed =
+        [...data].reverse();
+
+
+    reversed.forEach(function(item,index){
+
+
+        html +=
+
+        "<div class='history-card'>" +
+
+        "<strong>Record " +
+        (index + 1) +
+        "</strong><br><br>" +
+
+        "📅 Date: " +
+        (item.date || "Not available") +
+
+        "<br>" +
+
+        "🩺 Cycle: " +
+        (item.cycle || "Not available") +
+        " days" +
+
+        "<br>" +
+
+        "❤️ Pain: " +
+        (item.pain ?? "Not available") +
+        "/10" +
+
+        "<br>" +
+
+        "🩸 Flow: " +
+        (item.flow || "Not available") +
+
+        "<br>" +
+
+        "😴 Sleep: " +
+        (item.sleep || "Not available") +
+
+        "</div>";
+
+    });
+
+
+    history.innerHTML = html;
+
+}
+
+
+
+/* ==================================================
+   DOCTOR REPORT
+================================================== */
+
+function generateReport(){
+
+
+    let user =
+        JSON.parse(
+            localStorage.getItem("prakritiUser")
+        );
+
+
+    if(!user){
+
+        alert(
+            "Please login first."
+        );
+
+        return;
+
+    }
+
+
+    let age =
+        document.getElementById("age").value;
+
+
+    let cycle =
+        document.getElementById("cycle").value;
+
+
+    let concern =
+        document.getElementById("concern").value;
+
+
+    let pain =
+        document.getElementById("pain").value;
+
+
+    let flow =
+        document.getElementById("flow").value;
+
+
+    let sleep =
+        document.getElementById("sleep").value;
+
+
+
+    /* GET SYMPTOMS */
+
+    let symptoms = [];
+
+
+    document
+        .querySelectorAll(".symptom:checked")
+        .forEach(function(item){
+
+            symptoms.push(
+                item.parentElement.innerText.trim()
+            );
+
+        });
+
+
+
+    /* REPORT */
+
+    let report =
+
+        "PRAKRITI AI\n" +
+
+        "WOMEN'S HEALTH SCREENING REPORT\n" +
+
+        "================================\n\n" +
+
+        "Date: " +
+
+        new Date().toLocaleDateString() +
+
+        "\n\n" +
+
+
+        "BASIC INFORMATION\n" +
+
+        "-----------------\n" +
+
+        "Name: " +
+        user.name +
+
+        "\n" +
+
+        "Age: " +
+        age +
+
+        "\n" +
+
+        "Cycle Length: " +
+        cycle +
+        " days\n" +
+
+        "Primary Concern: " +
+        concern +
+
+        "\n\n" +
+
+
+        "SYMPTOMS\n" +
+
+        "--------\n" +
+
+        (
+            symptoms.length
+            ?
+            symptoms.join(", ")
+            :
+            "No symptoms selected"
+        ) +
+
+        "\n\n" +
+
+
+        "MONTHLY HEALTH DATA\n" +
+
+        "-------------------\n" +
+
+        "Pain Level: " +
+        pain +
+        "/10\n" +
+
+        "Flow: " +
+        (flow || "Not entered") +
+
+        "\n" +
+
+        "Sleep Quality: " +
+        (sleep || "Not entered") +
+
+        "\n\n" +
+
+
+        "PCOS SCREENING\n" +
+
+        "--------------\n" +
+
+        document.getElementById("risk")
+            .innerText +
+
+        "\n\n" +
+
+        "This application provides symptom-based screening only.\n" +
+
+        "It does NOT diagnose PCOS.\n\n" +
+
+
+        "MEDICAL HEALTH ASSESSMENT\n" +
+
+        "-------------------------\n" +
+
+        document.getElementById("medical")
+            .innerText +
+
+        "\n\n" +
+
+
+        "AYURVEDIC PERSPECTIVE\n" +
+
+        "---------------------\n" +
+
+        document.getElementById("ayurveda")
+            .innerText +
+
+        "\n\n" +
+
+
+        "WHY THESE RECOMMENDATIONS\n" +
+
+        "-------------------------\n" +
+
+        document.getElementById("why")
+            .innerText +
+
+        "\n\n" +
+
+
+        "IMPORTANT\n" +
+
+        "---------\n" +
+
+        "This report is for educational and screening purposes only.\n" +
+
+        "It does not provide a medical diagnosis.\n\n" +
+
+        "Please discuss your symptoms and this report with a qualified healthcare professional.\n\n" +
+
+        "================================\n" +
+
+        "Generated by Prakriti AI";
+
+
+
+    /* CREATE FILE */
+
+    let blob =
+        new Blob(
+            [report],
+            {
+                type:"text/plain"
+            }
+        );
+
+
+    let link =
+        document.createElement("a");
+
+
+    link.href =
+        URL.createObjectURL(blob);
+
+
+    link.download =
+        "Prakriti_AI_Doctor_Report.txt";
+
+
+    document.body.appendChild(link);
+
+
+    link.click();
+
+
+    document.body.removeChild(link);
+
+
+    URL.revokeObjectURL(link.href);
+
+}
+
+</script>
 
 </body>
 
